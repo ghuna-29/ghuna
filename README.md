@@ -27,3 +27,40 @@ public class Main {
         System.out.print("yes");
     }
 }
+
+// Camel case conversion
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        String str=scan.nextLine();
+        char[] ch=str.toCharArray();
+        StringBuilder sb=new StringBuilder();
+        StringBuilder con=new StringBuilder();
+        int n=str.length();
+        for(int i=0;i<n;i++){
+            if(ch[i]!=' '){
+                sb.append(ch[i]);
+            }else{
+                //change(sb);
+                con.append(change(sb));
+                sb.setLength(0);
+            }
+        }
+        //change(sb);
+        con.append(change(sb));
+        System.out.print(con);
+    }
+    public static StringBuilder change(StringBuilder sb){
+        StringBuilder s=new StringBuilder();
+        char[] arr=sb.toString().toCharArray();
+        for(int i=0;i<arr.length;i++){
+            if(i==0){
+                s.append(Character.toUpperCase(arr[i]));
+            }else{
+                s.append(arr[i]);
+            }
+        }
+        return s;
+    }
+}
