@@ -1,1 +1,29 @@
-# ghuna
+// Isomorphic string
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        String str1=scan.next();
+        String str2=scan.next();
+        char freq1[]=new char[256];
+        char freq2[]=new char[256];
+        if(str1.length()!=str2.length()){
+            System.out.print("no");
+            return;
+        }
+        for(int i=0;i<str1.length();i++){
+            char ch1=str1.charAt(i);
+            char ch2=str2.charAt(i);
+            if(freq1[ch1]==0 && freq2[ch2]==0){
+                freq1[ch1]=ch2;
+                freq2[ch2]=ch1;
+            }else{
+                if(freq1[ch1]!=ch2 || freq2[ch2]!=ch1){
+                    System.out.print("no");
+                    return;
+                }
+            }
+        }
+        System.out.print("yes");
+    }
+}
